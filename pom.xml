@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
+        <jdk.version>1.8</jdk.version>
         <lombok.version>1.16.18</lombok.version>
         <fastjson.version>1.2.37</fastjson.version>
         <rocketmq.client.version>3.5.9</rocketmq.client.version>
