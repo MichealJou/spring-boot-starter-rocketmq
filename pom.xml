@@ -22,8 +22,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.2.RELEASE</version>
-
     </parent>
+
     <repositories>
         <repository>
             <id>jitpack.io</id>
@@ -31,6 +31,12 @@
         </repository>
     </repositories>
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-all</artifactId>
+            <version>${rocketmq.client.version}</version>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
