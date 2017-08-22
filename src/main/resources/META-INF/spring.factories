@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.michaeljou.starter.mq.config.MQBaseAutoConfiguration,\
+com.michaeljou.starter.mq.config.MQConsumerAutoConfiguration,\
+com.michaeljou.starter.mq.config.MQProducerAutoConfiguration
