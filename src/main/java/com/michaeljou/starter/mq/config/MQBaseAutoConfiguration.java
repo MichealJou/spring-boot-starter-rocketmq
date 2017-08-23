@@ -1,7 +1,7 @@
 package com.michaeljou.starter.mq.config;
 
 
-import com.michaeljou.starter.mq.annotation.EnableRocketMQConfiguration;
+import com.michaeljou.starter.mq.annotation.EnableRocketMQ;
 import com.michaeljou.starter.mq.base.AbstractRocketMQProducer;
 import com.michaeljou.starter.mq.base.AbstractRocketMQPushConsumer;
 import org.springframework.beans.BeansException;
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * RocketMQ配置文件
  */
 @Configuration
-@ConditionalOnBean(annotation = EnableRocketMQConfiguration.class)
+@ConditionalOnBean(annotation = EnableRocketMQ.class)
 @AutoConfigureAfter({AbstractRocketMQProducer.class, AbstractRocketMQPushConsumer.class})
 @EnableConfigurationProperties(MQProperties.class)
 public class MQBaseAutoConfiguration implements ApplicationContextAware {

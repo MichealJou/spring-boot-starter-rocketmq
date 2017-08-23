@@ -6,7 +6,6 @@ import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import com.alibaba.rocketmq.common.message.MessageExt;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -14,9 +13,8 @@ import java.util.List;
 
 
 /**
+ * @param <T> ocketMQ的消费者(Push模式)处理消息的接口
  * @author michaeljou
- * @param <T>
- *     ocketMQ的消费者(Push模式)处理消息的接口
  */
 @Slf4j
 public abstract class AbstractRocketMQPushConsumer<T> {
@@ -67,7 +65,7 @@ public abstract class AbstractRocketMQPushConsumer<T> {
         }
         final Type type = this.getMessageType();
         if (type instanceof Class) {
-            Object data = JSON.parseObject(new String(message.getBody()),type);
+            Object data = JSON.parseObject(new String(message.getBody()), type);
             return (T) data;
         } else {
             log.warn("Parse msg error. {}", message);
