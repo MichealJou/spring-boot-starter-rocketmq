@@ -17,26 +17,6 @@ public abstract class AbstractRocketMQBeanFactory {
     /**
      * 构建生成者和消费者
      */
-    public abstract void build();
+    public abstract void build() throws Exception;
 
-    /**
-     * 检查消费
-     */
-    protected abstract void checkConsumer();
-
-
-    /**
-     * 检查生产者
-     */
-    protected abstract void checkProducer();
-
-    /**
-     * 生成消费者
-     */
-    protected abstract void buildComsumer();
-
-    /**
-     * 生产生产者对象
-     */
-    protected abstract void buildProducer();
 }

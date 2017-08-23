@@ -24,21 +24,27 @@ import java.util.UUID;
  * Created by lenovo on 2017/8/23.
  */
 @Slf4j
-@Component
-@ConditionalOnMissingBean
+
 public class ProducerBeanFactory {
 
     private DefaultMQProducer producer;
 
     private ApplicationContext applicationContext;
 
-    @Autowired
+
     private MQProperties mqProperties;
 
     /**
      * 构建消费者
      */
     public void buildProducer(ApplicationContext applicationContext, MQProperties mqProperties) throws Exception {
+
+        if (this.mqProperties == null) {
+            this.mqProperties = mqProperties;
+        }
+        if (this.applicationContext == null) {
+            this.applicationContext = applicationContext;
+        }
         if (producer == null) {
             if (StringUtils.isEmpty(mqProperties.getProducerGroup())) {
                 throw new RuntimeException("请在配置文件中指定消息发送方group！");
@@ -81,7 +87,7 @@ public class ProducerBeanFactory {
         log.info(String.format("%s is ready to produce message", beanName));
     }
 
-    public void buildMQProducer(DefaultMQProducer producer) throws MQClientException {
+    private void buildMQProducer(DefaultMQProducer producer) throws MQClientException {
         producer.setNamesrvAddr(mqProperties.getNameServerAddress());
         producer.setVipChannelEnabled(mqProperties.isVipChannelEnabled());
         producer.setCreateTopicKey(mqProperties.getCreateTopicKey());

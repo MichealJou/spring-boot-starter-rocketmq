@@ -24,14 +24,12 @@ import java.util.UUID;
  * Created by lenovo on 2017/8/23.
  */
 @Slf4j
-@Component
-@ConditionalOnMissingBean
 public class ConsumerBeanFactory {
 
 
     private ApplicationContext applicationContext;
 
-    @Autowired
+
     private MQProperties mqProperties;
 
 
